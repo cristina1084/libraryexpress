@@ -101,6 +101,9 @@ const app = exp();
 app.set("view engine","ejs");  
 app.set("views","./src/views");  
 const path = require('path');
+var bodyparser = require('body-parser');
+
+app.use(bodyparser.urlencoded({extended:true}));
 
 app.use(exp.static(path.join(__dirname+"/public")));    //sending static files
 
@@ -130,6 +133,21 @@ app.get("/books",(req,res)=>{
         }
     ); 
 })
+
+app.get("/sp/:id",(req,res)=>{
+    res.render(
+        "readmore",
+        {
+            pageTitle:"Library",
+            nav:[
+                {link:"/books", title:"Books"}, 
+                {link:"/authors", title:"Authors"}
+            ],
+            book:books_arr[req.params.id]
+        }
+    );
+})
+
 
 app.get("/authors",(req,res)=>{
     res.render(

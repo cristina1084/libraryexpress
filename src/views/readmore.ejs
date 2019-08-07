@@ -3,9 +3,10 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Books</title>
+		<title>Read More</title>
 		<meta name="generator" content="Bootply" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <base href="/">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
@@ -90,19 +91,17 @@
           
           
           <!--/stories-->
-          <% for (var j=0; j<booksarr.length; j++){ %>
-
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= booksarr[j].urlToImage %>" style="width:95px;height:150px"></a>
+              <a class="story-title" href="#"><img alt="" src="<%= book.urlToImage %>" style="width:95px;height:150px"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%= booksarr[j].bookTitle %></h3>
+              <h3><%= book.bookTitle %></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><span class="label label-default"><%= booksarr[j].author %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%= booksarr[j].genre %>  • &#x20b9;<%= booksarr[j].price %>  • <a href="/sp/<%= j%>" class="text-muted">Read More</a></small>
+                  <h4><span class="label label-default"><%= book.author %></span></h4><h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted"><%= book.genre %>  • &#x20b9;<%= book.price %> 
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>
@@ -110,7 +109,6 @@
             </div>
           </div>
           <hr>
-          <% } %>
           <!--/stories-->
           
           

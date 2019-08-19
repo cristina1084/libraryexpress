@@ -9,7 +9,12 @@ var bookrouter = require('./routes/booksrouter');
 var authorrouter = require('./routes/authorsrouter');
 var signuprouter = require('./routes/signup')
 var loginrouter = require('./routes/login')
-
+var mongo = require('mongoose');
+var url = "mongodb://localhost/library";
+mongo.connect(url, {useNewUrlParser:true}, (err)=>{
+    if (err) throw err;
+    else console.log("Database connected");
+})
 //app.use(bodyparser.urlencoded({extended:true}));
 
 app.use(exp.static(path.join(__dirname+"/public")));    //sending static files

@@ -106,7 +106,27 @@ router.get("/",(req,res)=>{
             pageTitle:"Library",
             nav:[
                 {link:"/books", title:"Books"}, 
-                {link:"/authors", title:"Authors"}
+                {link:"/authors", title:"Authors"},
+                {link:"/signup", title:"Sign Up"},
+                {link:"/login", title:"Login"},
+                {link:"/books/add", title:"Add Books"}
+            ],
+            booksarr:books_arr
+        }
+    ); 
+})
+
+router.get("/add",(req,res)=>{
+    res.render(
+        "addbook",
+        {
+            pageTitle:"Library",
+            nav:[
+                {link:"/books", title:"Books"}, 
+                {link:"/authors", title:"Authors"},
+                {link:"/signup", title:"Sign Up"},
+                {link:"/login", title:"Login"},
+                {link:"/books/add", title:"Add Books"}
             ],
             booksarr:books_arr
         }
@@ -120,7 +140,10 @@ router.get("/:id",(req,res)=>{
             pageTitle:"Library",
             nav:[
                 {link:"/books", title:"Books"}, 
-                {link:"/authors", title:"Authors"}
+                {link:"/authors", title:"Authors"},
+                {link:"/signup", title:"Sign Up"},
+                {link:"/login", title:"Login"},
+                {link:"/books/add", title:"Add Books"}
             ],
             book:books_arr[req.params.id]
         }

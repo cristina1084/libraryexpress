@@ -3,15 +3,15 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Authors</title>
+		<title>Library</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -86,39 +86,45 @@
       
       <div class="panel">
         <div class="panel-body">
-          
-          
-          
-          <!--/stories-->
-          <% for (var j=0; j<authorsarr.length; j++){ %>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= authorsarr[j].urlToImage %>" style="width:120px;height:150px"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%= authorsarr[j].author %></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%= authorsarr[j].author %></span></h4>
-                  <h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">   • <a href="/authors/<%= j%>" class="text-muted">Read More</a></small>
-                  </h4>
-                </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          <% } %>
-          <!--/stories-->
-          
-          
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
-        
-          
+            <div class="card-body">
+                <div class="row justify-content-center ">
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12">    
+                        <div class="card" id="card2">
+                            <h5 class="card-header text-center"> Add Book </h5>
+                            <div class="card-body">
+                                <form action="">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td> Title </td>
+                                            <td> <input type="text" name="title" class="form-control" > </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Author </td>
+                                            <td> <input type="text" class="form-control" name="email" > </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Description </td>
+                                            <td> <textarea name="description" id="" cols="100" rows="5"></textarea> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Price </td>
+                                            <td> <input type="number" class="form-control" name="price"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Upload Image Url </td>
+                                            <td> <input type="text" class="form-control" name="burl" > </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                                            <td> <button type="submit" class="btn btn-success"> Add </button></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </div>
       </div>
                                                                                        
@@ -170,6 +176,6 @@
 </footer>
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>

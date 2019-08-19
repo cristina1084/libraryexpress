@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Authors</title>
+		<title>Library</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -87,38 +87,50 @@
       <div class="panel">
         <div class="panel-body">
           
-          
-          
-          <!--/stories-->
-          <% for (var j=0; j<authorsarr.length; j++){ %>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= authorsarr[j].urlToImage %>" style="width:120px;height:150px"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%= authorsarr[j].author %></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%= authorsarr[j].author %></span></h4>
-                  <h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted">   • <a href="/authors/<%= j%>" class="text-muted">Read More</a></small>
-                  </h4>
-                </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          <% } %>
-          <!--/stories-->
-          
-          
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
-        
-          
+            <div class="card-body">
+                <div class="row justify-content-center ">
+                    <div class="col col-12 col-sm-12 col-md-6 col-lg-6">    
+                        <div class="card" id="card2">
+                            <h5 class="card-header text-center"> Sign Up </h5>
+                            <div class="card-body">
+                                <form action="">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td> Name </td>
+                                            <td> <input type="text" id="name" class="form-control"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Email </td>
+                                            <td> <input type="email" class="form-control" id="email"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Mobile </td>
+                                            <td> <input type="number" class="form-control" id="mobile"  > </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Username </td>
+                                            <td> <input type="text" class="form-control" id="username"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Password </td>
+                                            <td> <input type="password"  class="form-control" id="pass1"  > </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Confirm Password </td>
+                                            <td> <input type="password"  class="form-control" id="pass2"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                                            <td> <button type="button" class="btn btn-success"> Register </button></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
         </div>
       </div>
                                                                                        

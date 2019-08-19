@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Books</title>
+		<title>Library</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -86,37 +86,49 @@
       
       <div class="panel">
         <div class="panel-body">
-          
-          
-          
-          <!--/stories-->
-          <% for (var j=0; j<booksarr.length; j++){ %>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= booksarr[j].urlToImage %>" style="width:95px;height:150px"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3><%= booksarr[j].bookTitle %></h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <h4><span class="label label-default"><%= booksarr[j].author %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%= booksarr[j].genre %>  • &#x20b9;<%= booksarr[j].price %>  • <a href="/books/<%= j%>" class="text-muted">Read More</a></small>
-                  </h4></div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          <% } %>
-          <!--/stories-->
-          
-          
-          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
-        
-          
+            <div class="card-body">
+                <div class="row justify-content-center ">
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12">    
+                        <div class="card" id="card2">
+                            <h5 class="card-header text-center"> Edit Book </h5>
+                            <div class="card-body">
+                                <form action="/books/edit" method="POST">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td> Title </td>
+                                            <td> <input type="text" name="title" class="form-control" value="<%= book[0].bookTitle %>"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Author </td>
+                                            <td> <input type="text" class="form-control" name="author" value="<%= book[0].author%>"> </td>
+                                        </tr>
+                                        <tr>
+                                          <td> Genre </td>
+                                          <td> <input type="text" class="form-control" name="genre" value="<%= book[0].genre%>"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Description </td>
+                                            <td> <input name="description" id="" value="<%= book[0].description %>"></input> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Price </td>
+                                            <td> <input type="number" class="form-control" name="price" value="<%= book[0].price %>"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Upload Image Url </td>
+                                            <td> <input type="text" class="form-control" name="url" value="<%= book[0].urlToImage %>"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
+                                            <td> <button type="submit" class="btn btn-success"> Update </button></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
         </div>
       </div>
                                                                                        

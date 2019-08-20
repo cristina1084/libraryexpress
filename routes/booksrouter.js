@@ -2,6 +2,8 @@ var exp = require('express');
 const router = exp.Router();   
 var bodyparser = require('body-parser');
 var books = require('../model/booksmodel');
+const path = require('path');
+
 router.use(bodyparser.urlencoded({extended:true}));
 
 var multer = require('multer'); //module to upload files
@@ -71,7 +73,9 @@ router.post("/add",upload, (req,res)=>{
     })
 })
 
-
+router.get("/view/:img",function(req,res){        //image controller
+    res.sendFile(path.join(__dirname+"../../public/images/"+req.params.img))
+})
 
 router.get("/update",(req,res)=>{
     books.find({},(err,result)=>{

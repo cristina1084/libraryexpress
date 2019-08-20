@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="/index" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -93,19 +93,19 @@
                     <div class="card" id="card1">
                         <h5 class="card-header text-center"> Login </h5>
                         <div class="card-body">
-                            <form action="">
+                            <form action="/login" method="POST">
                                 <table class="table table-borderless">
                                     <tr>
                                         <td> Username </td>
-                                        <td> <input type="text" class="form-control" id="uname"> </td>
+                                        <td> <input type="text" class="form-control" name="uname"> </td>
                                     </tr>
                                     <tr>
                                         <td> Password </td>
-                                        <td> <input type="password"  id="pwd" class="form-control"> </td>
+                                        <td> <input type="password"  name="pwd" class="form-control"> </td>
                                     </tr>
                                     <tr>
                                         <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
-                                        <td> <button type="button" class="btn btn-success" id="btn1"> Login </button></td>
+                                        <td> <button type="submit" class="btn btn-success" id="btn1"> Login </button></td>
                                     </tr>
                                 </table>
                             </form>

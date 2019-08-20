@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="/index" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -102,7 +102,7 @@
               <div class="row">
                 <div class="col-xs-9">
                   <h4><span class="label label-default"><%= booksarr[j].author %></span></h4><h4>
-                  <small style="font-family:courier,'new courier';" class="text-muted"><%= booksarr[j].genre %>  • &#x20b9;<%= booksarr[j].price %>  • <a href="/books/update/<%= booksarr[j].bookTitle%>" class="text-muted">Update</a> • <a href="/books/delete/<%= booksarr[j].bookTitle%>" class="text-muted">Delete</a></small>
+                  <small style="font-family:courier,'new courier';" class="text-muted"> • <a href="/books/update/<%= booksarr[j].bookTitle%>" class="text-muted">Update</a> • <a href="/books/delete/<%= booksarr[j].bookTitle%>" class="text-muted">Delete</a></small>
                   </h4></div>
                 <div class="col-xs-3"></div>
               </div>

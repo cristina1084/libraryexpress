@@ -21,6 +21,22 @@ app.use(exp.static(path.join(__dirname+"/public")));    //sending static files
 
 app.get("/",(req,res)=>{
     res.render(               //rendering
+        "login",
+        {
+            pageTitle:"Library",
+            nav:[
+                {link:"/books", title:"Books"}, 
+                {link:"/authors", title:"Authors"},
+                {link:"/signup", title:"Sign Up"},
+                {link:"/login", title:"Login"},
+                {link:"/books/add", title:"Add Books"}
+            ]
+        }
+    ); 
+})
+
+app.get("/index",(req,res)=>{
+    res.render(               //rendering
         "index",
         {
             pageTitle:"Library",

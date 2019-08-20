@@ -1,5 +1,6 @@
 var exp = require('express');
 const router = exp.Router();
+var user = require('../model/usersmodel');
 
 router.get("/",(req,res)=>{
     res.render(

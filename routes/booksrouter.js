@@ -47,21 +47,21 @@ router.get("/update",(req,res)=>{
     books.find({},(err,result)=>{
         if (err) throw err;
         else
-        res.render(
-            "updatebook",
-            {
-                pageTitle:"Library",
-                nav:[
-                    {link:"/books", title:"Books"}, 
-                    {link:"/authors", title:"Authors"},
-                    {link:"/signup", title:"Sign Up"},
-                    {link:"/login", title:"Login"},
-                    {link:"/books/add", title:"Add Books"},
-                    {link:"/books/update", title:"Edit/Delete Books"}
-                ],
-                booksarr:result
-            }
-        );
+            res.render(
+                "updatebook",
+                {
+                    pageTitle:"Library",
+                    nav:[
+                        {link:"/books", title:"Books"}, 
+                        {link:"/authors", title:"Authors"},
+                        {link:"/signup", title:"Sign Up"},
+                        {link:"/login", title:"Login"},
+                        {link:"/books/add", title:"Add Books"},
+                        {link:"/books/update", title:"Edit/Delete Books"}
+                    ],
+                    booksarr:result
+                }
+            );
     }) 
 })
 
@@ -99,21 +99,7 @@ router.post("/edit",(req,res)=>{
             books.find({},(err,result)=>{
                 if (err) throw err;
                 else
-                res.render(
-                    "books",
-                    {
-                        pageTitle:"Library",
-                        nav:[
-                            {link:"/books", title:"Books"}, 
-                            {link:"/authors", title:"Authors"},
-                            {link:"/signup", title:"Sign Up"},
-                            {link:"/login", title:"Login"},
-                            {link:"/books/add", title:"Add Books"},
-                            {link:"/books/update", title:"Edit/Delete Books"}
-                        ],
-                        booksarr:result
-                    }
-                );
+                    res.redirect("/books/update")
             })
         }
     }) 
@@ -127,21 +113,7 @@ router.get("/delete/:bid",(req,res)=>{
             books.find({},(err,result)=>{
                 if(err) throw err;
                 else
-                res.render(
-                    "updatebook",
-                    {
-                        pageTitle:"Library",
-                        nav:[
-                            {link:"/books", title:"Books"}, 
-                            {link:"/authors", title:"Authors"},
-                            {link:"/signup", title:"Sign Up"},
-                            {link:"/login", title:"Login"},
-                            {link:"/books/add", title:"Add Books"},
-                            {link:"/books/update", title:"Edit/Delete Books"}
-                        ],
-                        booksarr:result
-                    }
-                );
+                    res.redirect("/books/update")
             })
         }
     })

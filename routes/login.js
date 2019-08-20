@@ -1,5 +1,8 @@
 var exp = require('express');
 const router = exp.Router();
+var bodyparser = require('body-parser');
+router.use(bodyparser.urlencoded({extended:true}));
+var user = require('../model/usersmodel');
 
 router.get("/",(req,res)=>{
     res.render(
@@ -10,25 +13,26 @@ router.get("/",(req,res)=>{
                 {link:"/books", title:"Books"}, 
                 {link:"/authors", title:"Authors"},
                 {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
+                {link:"/", title:"Login"},
                 {link:"/books/add", title:"Add Books"}
             ]
-        })
+        }
+    )
 })
 
 router.post("/",(req,res)=>{
-    res.render(
-        "index",
-        {
-            pageTitle:"Library",
-            nav:[
-                {link:"/books", title:"Books"}, 
-                {link:"/authors", title:"Authors"},
-                {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
-                {link:"/books/add", title:"Add Books"}
-            ]
-        })
+    user.find({username:req.body.uname, password:req.body.pwd},(err,result)=>{
+        if (err) throw err;
+        else{
+            console.log(result.length);
+            if(result.length!=0)
+                res.redirect("/index");
+                
+            else
+                res.redirect("/login");
+        }
+    })
+    
 })
 
 module.exports = router;

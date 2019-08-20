@@ -3,6 +3,7 @@ const router = exp.Router();
 var bodyparser = require('body-parser');
 var books = require('../model/booksmodel');
 router.use(bodyparser.urlencoded({extended:true}));
+
 router.get("/",(req,res)=>{
     books.find({},(err,result)=>{
         if (err) throw err;
@@ -147,7 +148,7 @@ router.get("/delete/:bid",(req,res)=>{
 })
 
 router.get("/:id",(req,res)=>{
-    books.find({},(err,result)=>{
+    books.find({bookTitle:req.params.id},(err,result)=>{
         if (err) throw err;
         else
             res.render(
@@ -162,7 +163,7 @@ router.get("/:id",(req,res)=>{
                         {link:"/books/add", title:"Add Books"},
 
                     ],
-                    book:result[req.params.id]
+                    book:result
                 }
             );
     })

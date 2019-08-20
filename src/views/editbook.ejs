@@ -92,7 +92,7 @@
                         <div class="card" id="card2">
                             <h5 class="card-header text-center"> Edit Book </h5>
                             <div class="card-body">
-                                <form action="/books/edit" method="POST">
+                                <form action="/books/edit" method="POST" enctype="multipart/form-data">
                                     <table class="table table-borderless">
                                         <tr>
                                             <td> Title </td>
@@ -115,8 +115,8 @@
                                             <td> <input type="number" class="form-control" name="price" value="<%= book[0].price %>"> </td>
                                         </tr>
                                         <tr>
-                                            <td> Upload Image Url </td>
-                                            <td> <input type="text" class="form-control" name="url" value="<%= book[0].urlToImage %>"> </td>
+                                          <td> Upload Image </td>
+                                          <td> <input type="file" class="form-control" name="bimage"> </td>
                                         </tr>
                                         <tr>
                                             <td> </td>

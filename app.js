@@ -25,11 +25,8 @@ app.get("/",(req,res)=>{
         {
             pageTitle:"Library",
             nav:[
-                {link:"/books", title:"Books"}, 
-                {link:"/authors", title:"Authors"},
                 {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
-                {link:"/books/add", title:"Add Books"}
+                {link:"/login", title:"Login"}
             ]
         }
     ); 
@@ -43,12 +40,16 @@ app.get("/index",(req,res)=>{
             nav:[
                 {link:"/books", title:"Books"}, 
                 {link:"/authors", title:"Authors"},
-                {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
-                {link:"/books/add", title:"Add Books"}
+                {link:"/books/add", title:"Add Books"},
+                {link:"/books/update", title:"Edit/Delete Books"},
+                {link:"/logout", title:"Logout"}
             ]
         }
     ); 
+})
+
+app.get("/logout",(req,res)=>{
+    res.redirect("/");
 })
 
 app.use("/books", bookrouter);

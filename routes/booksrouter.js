@@ -4,6 +4,19 @@ var bodyparser = require('body-parser');
 var books = require('../model/booksmodel');
 router.use(bodyparser.urlencoded({extended:true}));
 
+var multer = require('multer'); //module to upload files
+
+var storage =   multer.diskStorage({  
+    destination: (req, file, callback)=>{  
+      callback(null, './public/images');  
+    },  
+    filename: (req, file, callback)=>{  
+      callback(null, file.originalname);  
+    }  
+  });  
+  
+var upload = multer({ storage : storage}).single('bimage');  
+
 router.get("/",(req,res)=>{
     books.find({},(err,result)=>{
         if (err) throw err;
@@ -15,10 +28,9 @@ router.get("/",(req,res)=>{
                     nav:[
                         {link:"/books", title:"Books"}, 
                         {link:"/authors", title:"Authors"},
-                        {link:"/signup", title:"Sign Up"},
-                        {link:"/login", title:"Login"},
                         {link:"/books/add", title:"Add Books"},
-                        {link:"/books/update", title:"Edit/Delete Books"}
+                        {link:"/books/update", title:"Edit/Delete Books"},
+                        {link:"/logout", title:"Logout"}
                     ],
                     booksarr:result
                 }
@@ -34,23 +46,22 @@ router.get("/add",(req,res)=>{
             nav:[
                 {link:"/books", title:"Books"}, 
                 {link:"/authors", title:"Authors"},
-                {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
                 {link:"/books/add", title:"Add Books"},
-                {link:"/books/update", title:"Edit/Delete Books"}
+                {link:"/books/update", title:"Edit/Delete Books"},
+                {link:"/logout", title:"Logout"}
             ]
         }
     ); 
 })
 
-router.post("/add",(req,res)=>{
+router.post("/add",upload, (req,res)=>{
     var b1 = new books();
     b1.bookTitle = req.body.title;
     b1.author = req.body.author;
     b1.genre = req.body.genre;
     b1.description = req.body.description;
     b1.price = req.body.price;
-    b1.urlToImage = req.body.burl;
+    b1.urlToImage = req.file.filename;
     b1.save((err)=>{
         if (err) throw err;
         else{
@@ -71,10 +82,9 @@ router.get("/update",(req,res)=>{
                     nav:[
                         {link:"/books", title:"Books"}, 
                         {link:"/authors", title:"Authors"},
-                        {link:"/signup", title:"Sign Up"},
-                        {link:"/login", title:"Login"},
                         {link:"/books/add", title:"Add Books"},
-                        {link:"/books/update", title:"Edit/Delete Books"}
+                        {link:"/books/update", title:"Edit/Delete Books"},
+                        {link:"/logout", title:"Logout"}
                     ],
                     booksarr:result
                 }
@@ -92,24 +102,23 @@ router.get("/update/:bid",(req,res)=>{
                 nav:[
                     {link:"/books", title:"Books"}, 
                     {link:"/authors", title:"Authors"},
-                    {link:"/signup", title:"Sign Up"},
-                    {link:"/login", title:"Login"},
                     {link:"/books/add", title:"Add Books"},
-                    {link:"/books/update", title:"Edit/Delete Books"}
+                    {link:"/books/update", title:"Edit/Delete Books"},
+                    {link:"/logout", title:"Logout"}
                 ],
                 book: result
             });
     })
 })
 
-router.post("/edit",(req,res)=>{
+router.post("/edit", upload, (req,res)=>{
     books.updateOne({bookTitle:req.body.title} ,{$set:{
         bookTitle:req.body.title,
         author : req.body.author,
         genre : req.body.genre,
         description : req.body.description,
         price : req.body.price,
-        urlToImage : req.body.url
+        urlToImage : req.file.filename
     }}, (err,result)=>{
         if (err) throw err;
         else{
@@ -150,10 +159,9 @@ router.get("/:id",(req,res)=>{
                     nav:[
                         {link:"/books", title:"Books"}, 
                         {link:"/authors", title:"Authors"},
-                        {link:"/signup", title:"Sign Up"},
-                        {link:"/login", title:"Login"},
                         {link:"/books/add", title:"Add Books"},
-
+                        {link:"/books/update", title:"Edit/Delete Books"},                        
+                        {link:"/logout", title:"Logout"}
                     ],
                     book:result
                 }

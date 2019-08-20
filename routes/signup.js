@@ -10,11 +10,8 @@ router.get("/",(req,res)=>{
         {
             pageTitle:"Library",
             nav:[
-                {link:"/books", title:"Books"}, 
-                {link:"/authors", title:"Authors"},
                 {link:"/signup", title:"Sign Up"},
-                {link:"/login", title:"Login"},
-                {link:"/books/add", title:"Add Books"}
+                {link:"/login", title:"Login"}
             ]
         })
 })

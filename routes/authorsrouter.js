@@ -14,9 +14,9 @@ router.get("/",(req,res)=>{
                 nav:[
                     {link:"/books", title:"Books"}, 
                     {link:"/authors", title:"Authors"},
-                    {link:"/signup", title:"Sign Up"},
-                    {link:"/login", title:"Login"},
-                    {link:"/books/add", title:"Add Books"}
+                    {link:"/books/add", title:"Add Books"},
+                    {link:"/books/update", title:"Edit/Delete Books"},                        
+                    {link:"/logout", title:"Logout"}
                 ],
                 authorsarr:result
             }
@@ -35,9 +35,9 @@ router.get("/:id",(req,res)=>{
                 nav:[
                     {link:"/books", title:"Books"}, 
                     {link:"/authors", title:"Authors"},
-                    {link:"/signup", title:"Sign Up"},
-                    {link:"/login", title:"Login"},
-                    {link:"/books/add", title:"Add Books"}
+                    {link:"/books/add", title:"Add Books"},
+                    {link:"/books/update", title:"Edit/Delete Books"},                        
+                    {link:"/logout", title:"Logout"}
                 ],
                 author:result[req.params.id]
             }

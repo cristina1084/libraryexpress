@@ -43,6 +43,23 @@ router.get("/add",(req,res)=>{
     ); 
 })
 
+router.post("/add",(req,res)=>{
+    var b1 = new books();
+    b1.bookTitle = req.body.title;
+    b1.author = req.body.author;
+    b1.genre = req.body.genre;
+    b1.description = req.body.description;
+    b1.price = req.body.price;
+    b1.urlToImage = req.body.burl;
+    b1.save((err)=>{
+        if (err) throw err;
+        else{
+            console.log("Book added");
+            res.redirect("/books")
+        }
+    })
+})
+
 router.get("/update",(req,res)=>{
     books.find({},(err,result)=>{
         if (err) throw err;
@@ -120,9 +137,12 @@ router.get("/delete/:bid",(req,res)=>{
 })
 
 router.get("/:id",(req,res)=>{
+    console.log(req.params.id);
+    
     books.find({bookTitle:req.params.id},(err,result)=>{
         if (err) throw err;
-        else
+        else{
+            console.log(result);
             res.render(
                 "readmore",
                 {
@@ -138,6 +158,7 @@ router.get("/:id",(req,res)=>{
                     book:result
                 }
             );
+        }
     })
 })
 

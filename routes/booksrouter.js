@@ -1,5 +1,5 @@
 var exp = require('express');
-const router = exp.Router();    
+const router = exp.Router();   
 var bodyparser = require('body-parser');
 var books = require('../model/booksmodel');
 router.use(bodyparser.urlencoded({extended:true}));
@@ -70,6 +70,8 @@ router.post("/add",upload, (req,res)=>{
         }
     })
 })
+
+
 
 router.get("/update",(req,res)=>{
     books.find({},(err,result)=>{

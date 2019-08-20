@@ -52,6 +52,10 @@ app.get("/logout",(req,res)=>{
     res.redirect("/");
 })
 
+app.get("/view/:img",function(req,res){        //image controller
+    res.sendFile(__dirname+"/public/images/"+req.params.img)
+})
+
 app.use("/books", bookrouter);
 
 app.use("/authors",authorrouter);

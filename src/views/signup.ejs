@@ -93,39 +93,39 @@
                         <div class="card" id="card2">
                             <h5 class="card-header text-center"> Sign Up </h5>
                             <div class="card-body">
-                                <form action="" method="POST">
+                                <form action="/signup" method="POST">
                                     <table class="table table-borderless">
                                         <tr>
                                             <td> Name </td>
-                                            <td> <input type="text" name="name" class="form-control"> </td>
+                                            <td> <input type="text" name="name" class="form-control" required> </td>
                                         </tr>
                                         <tr>
                                             <td> Email </td>
-                                            <td> <input type="email" class="form-control" name="email"> </td>
+                                            <td> <input type="email" class="form-control" name="email" required> </td>
                                         </tr>
                                         <tr>
                                             <td> Mobile </td>
-                                            <td> <input type="number" class="form-control" name="mobile" > </td>
+                                            <td> <input type="number" class="form-control" name="mobile" required> </td>
                                         </tr>
                                         <tr>
                                           <td> Role </td>
-                                          <td> <input type="text" class="form-control" name="role" placeholder="Admin/User" > </td>
+                                          <td> <input type="text" class="form-control" name="role" placeholder="Admin/User" required> </td>
                                         </tr>
                                         <tr>
                                             <td> Username </td>
-                                            <td> <input type="text" class="form-control" name="username"> </td>
+                                            <td> <input type="text" class="form-control" name="username" required> </td>
                                         </tr>
                                         <tr>
                                             <td> Password </td>
-                                            <td> <input type="password"  class="form-control" name="pass1"  > </td>
+                                            <td> <input type="password"  class="form-control" name="password" required > </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td> Confirm Password </td>
                                             <td> <input type="password"  class="form-control" name="pass2"> </td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                             <td> <button type="reset" class="btn btn-primary"> Reset </button></td>
-                                            <td> <button type="button" class="btn btn-success"> Register </button></td>
+                                            <td> <button type="submit" class="btn btn-success"> Register </button></td>
                                         </tr>
                                     </table>
                                 </form>

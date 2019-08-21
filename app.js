@@ -62,6 +62,6 @@ app.use("/signup", signuprouter);
 app.use("/login", loginrouter);
 
 
-app.listen(8080,()=>{
+app.listen(process.env.PORT || 8080,()=>{
     console.log("Listening");
 })

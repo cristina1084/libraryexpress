@@ -10,7 +10,7 @@ var authorrouter = require('./routes/authorsrouter');
 var signuprouter = require('./routes/signup')
 var loginrouter = require('./routes/login')
 var mongo = require('mongoose');
-var url = "mongodb://localhost/library";
+var url = "mongodb+srv://cristina1084:Cristina1084@cluster0-qjdmb.mongodb.net/library?retryWrites=true&w=majority";
 mongo.connect(url, {useNewUrlParser:true}, (err)=>{
     if (err) throw err;
     else console.log("Database connected");

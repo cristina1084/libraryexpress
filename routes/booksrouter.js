@@ -73,7 +73,7 @@ router.post("/add",upload, (req,res)=>{
     })
 })
 
-router.get("/view/:img",function(req,res){        //image controller
+router.get("/view/:img",(req,res)=>{        //image controller
     res.sendFile(path.join(__dirname+"../../public/images/"+req.params.img))
 })
 
